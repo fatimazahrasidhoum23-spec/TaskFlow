@@ -1,0 +1,26 @@
+<section class="task-list" aria-labelledby="tasks-heading">
+  <div class="toolbar">
+    <h2 id="tasks-heading">Mes tâches</h2>
+    <p class="summary" aria-live="polite">{{ count() }} tâche(s) · {{ remaining() }} à faire</p>
+  </div>
+
+  <div class="actions">
+    <button type="button" class="btn" (click)="addSample()">Ajouter une tâche</button>
+    <button type="button" class="btn btn-ghost" (click)="reset()">Recharger l'exemple</button>
+    <button type="button" class="btn btn-danger" [disabled]="count() === 0" (click)="clear()">
+      Vider la liste
+    </button>
+  </div>
+
+  @if (count() === 0) {
+    <p class="empty">Aucune tâche pour l'instant</p>
+  } @else {
+    <ul class="items">
+      @for (task of tasks(); track task.id) {
+        <li>
+          <app-task-card [task]="task" (toggled)="toggle($event)" (removed)="remove($event)" />
+        </li>
+      }
+    </ul>
+  }
+</section>

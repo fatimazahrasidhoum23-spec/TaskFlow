@@ -1,0 +1,27 @@
+<article class="card" [class.completed]="task().completed">
+  <div class="content">
+    <h3 class="title">{{ task().title | uppercase }}</h3>
+
+    @if (task().dueDate) {
+      <p class="due">Échéance : {{ task().dueDate | date: 'dd/MM/yyyy' }}</p>
+    }
+  </div>
+
+  <span class="badge" [class]="task().priority | priorityClass">
+    {{ priorityLabels[task().priority] }}
+  </span>
+
+  <div class="actions">
+    <button type="button" class="btn btn-small" (click)="onToggle()">
+      {{ task().completed ? 'Rouvrir' : 'Terminer' }}
+    </button>
+    <button
+      type="button"
+      class="btn btn-small btn-danger"
+      [attr.aria-label]="'Supprimer la tâche ' + task().title"
+      (click)="onRemove()"
+    >
+      Supprimer
+    </button>
+  </div>
+</article>

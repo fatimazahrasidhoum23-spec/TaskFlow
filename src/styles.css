@@ -1,0 +1,101 @@
+/* Variables de design : un seul endroit pour modifier couleurs, espacements, etc. */
+:root {
+  --color-primary: #4338ca;
+  --color-primary-dark: #312e81;
+  --color-primary-hover: #3730a3;
+  --color-bg: #eef2ff;
+  --color-surface: #ffffff;
+  --color-border: #c7d2fe;
+  --color-text: #1e1b4b;
+  --color-text-muted: #4b5563;
+  --color-success: #047857;
+  --color-warning: #b45309;
+  --color-danger: #b91c1c;
+
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --radius: 0.625rem;
+  --container: 48rem;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+h1 {
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+h2 {
+  font-size: 1.375rem;
+  color: var(--color-primary-dark);
+}
+
+/* Boutons partagés par toute l'application */
+.btn {
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-primary);
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-warning);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--color-border);
+}
+
+.btn-danger {
+  background: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: #991b1b;
+}
+
+.btn-small {
+  padding: 4px var(--space-3);
+  font-size: 0.8125rem;
+}
